@@ -3,11 +3,11 @@ from bokeh.plotting import figure, output_file, show
 def descent(b0, b1, etha, x, y, count):
     n = len(x)
     for i in range(1, count):
-        temp_x = 0;
-        temp_y = 0;
+        temp_x = 0
+        temp_y = 0
         for j in range(0, n):
-            temp_x = 2 * (b0 + b1 * x[j] - y[j])
-            temp_y = 2 * (b0 + b1 * x[j] - y[j]) * x[j]
+            temp_x += 2 * (b0 + b1 * x[j] - y[j])
+            temp_y += 2 * (b0 + b1 * x[j] - y[j]) * x[j]
         b0 = b0 - etha * temp_x / n
         b1 = b1 - etha * temp_y / n
     return {'a': b1, 'b': b0}
