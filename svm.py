@@ -13,7 +13,7 @@ def NablaQ(w, x, y, b, lambd):
 def SGD(x, y, NablaLoss, w, b, C = 2, eta=0.1, iters=20):
     lambd = 2 / (C * len(x))
     for i in range(iters):
-        for xi, yi in zip(x, y):
+        for xi, yi in random.sample(list(zip(x, y)), len(x)):
             xi = np.array(xi)
             w = w - eta * NablaLoss(w, xi, yi, b, lambd)
             print(w)
@@ -26,7 +26,7 @@ y = [1, 1, 1, 0, 0, 0]
 
 C = 2
 b = 0
-w = np.array([1, 1])
+w = np.array([0, 0])
 
 w = SGD(x, y, NablaQ, w, b, C)
 print(w.dot(np.array([1, 2])) + b)
