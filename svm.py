@@ -1,6 +1,5 @@
 import numpy as np
 import random
-from bokeh.plotting import figure, output_file, show
 
 def hyper(w, x, y, b):
     return y * (w.transpose().dot(x) + b)
@@ -32,16 +31,3 @@ w = np.array([1, 1])
 w = SGD(x, y, NablaQ, w, b, C)
 print(w.dot(np.array([1, 2])) + b)
 print(w.dot(np.array([3, 2])) + b)
-
-#X =[]
-#Y = []
-#for xi in x:
-#    X.append(x1[0])
-#    Y.append(x1[1])
-    
-#output_file("linreg.html")
-#p = figure(plot_width=400, plot_height=400)
-#p.circle(X, Y, fill_color="blue", size=5)
-#p.line([1, 2], )
-
-#show(p)
